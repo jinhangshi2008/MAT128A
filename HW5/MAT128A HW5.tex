@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{pgfplots}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\begin{document}
+\begin{flushright}MAT 128A: Homework 5\\ Hangshi Jin\\ 913142686\\ Rohit Thomas
+\end{flushright}
+\begin{large}Section 4.3\end{large}
+\\\\2.d.\[\frac{\frac{1}{\left(e+1\right)\ln\left(e+1\right)}+\frac{1}{e}}{2}=0.286334172478\]
+4.d.\[f''(x)=\frac{2\ln^2\left(x\right)+3\ln x+2}{x^3\ln^3x}\]
+\[\text{error bound}=\frac{1}{12}\frac{2\ln^2e+3\ln e+2}{e^3\ln^3e}=0.0290424565479\]
+\[\text{actual error}=\int_e^{e+1}\frac{1}{x\ln x}dx-\frac{\frac{1}{\left(e+1\right)\ln\left(e+1\right)}+\frac{1}{e}}{2}=\ln(\ln(e+1))-\frac{\frac{1}{\left(e+1\right)\ln\left(e+1\right)}+\frac{1}{e}}{2}=0.0138202919758\]
+6.d.\[\int_e^{e+1}\frac{1}{x\ln x}dx\approx\frac{1}{6}[f(e)+4f(e+\frac{1}{2})+f(e+1)]=0.2726705\]
+8.d.\[f^{(4)}(x)=\frac{24\ln^4x+50\ln^3x+70\ln^2\left(x\right)+60\ln\left(x\right)+24}{x^5\ln^5x}\]
+\[\text{error bound}=\frac{24\ln^4e+50\ln^3e+70\ln^2\left(e\right)+60\ln\left(e\right)+24}{e^5\ln^5e}\cdot\frac{1}{90\cdot2^5}=0.000533420804094\]	
+\[\text{actual error}=\left|\int_e^{e+1}\frac{1}{x\ln x}dx-\frac{1}{6}[f(e)+4f(e+\frac{1}{2})+f(e+1)]\right|=0.00015657194238\]
+10.d.\[\int_e^{e+1}\frac{1}{x\ln x}dx\approx f(e+\frac{1}{2})=0.265838592\]
+12.d.\[\text{error bound}=\frac{1}{2^3\cdot3}\frac{2\ln^2e+3\ln e+2}{e^3\ln^3e}=0.014521228274\]
+\[\text{actual error}=\left|\int_e^{e+1}\frac{1}{x\ln x}dx-f(e+\frac{1}{2})\right|=0.00667528807258\]
+14.\[5=f(0)+f(2),4=2f(1)\Rightarrow f(1)=2\]
+Simpson rule gives
+\[\frac{1}{3}[f(0)+4f(1)+f(2)]=\frac{13}{3}\]
+18.\[f(x)=x^0,\int_0^21dx=2=c_0+c_1+c_2\]
+\[f(x)=x,\int_0^2xdx=2=c_1+2c_2\]
+\[f(x)=x^2,\int_0^2x^2dx=\frac{8}{3}=c_1+4c_2\]
+\[\Rightarrow c_0=\frac{1}{3},c_1=\frac{4}{3},c_2=\frac{1}{3}\]
+\begin{large}Section 4.4\end{large}
+\\\noindent\rule{16cm}{0.4pt}\lstinputlisting[language=Matlab]{composite.m}\noindent\rule{16cm}{0.4pt}
+\\2.d.
+\\\\Use composite.m, we get\[\int_e^{e+2}\frac{1}{x\ln x}dx\approx0.44034501347\]
+4.d.\[\frac{1}{12}(\frac{1}{e\ln\left(e\right)}+\frac{4}{\left(\frac{1}{4}+e\right)\ln\left(\frac{1}{4}+e\right)}+\frac{2}{\left(\frac{2}{4}+e\right)\ln\left(\frac{2}{4}+e\right)}+\frac{4}{\left(\frac{3}{4}+e\right)\ln\left(\frac{3}{4}+e\right)}+\frac{2}{\left(\frac{4}{4}+e\right)\ln\left(\frac{4}{4}+e\right)}\]
+\[+\frac{4}{\left(\frac{5}{4}+e\right)\ln\left(\frac{5}{4}+e\right)}+\frac{2}{\left(\frac{6}{4}+e\right)\ln\left(\frac{6}{4}+e\right)}+\frac{4}{\left(\frac{7}{4}+e\right)\ln\left(\frac{7}{4}+e\right)}+\frac{1}{\left(2+e\right)\ln\left(2+e\right)})=0.439199259506\]
+6.d.\[\frac{2}{5}\left(\frac{1}{\left(e+\frac{1}{5}\right)\ln\left(e+\frac{1}{5}\right)}+\frac{1}{\left(e+\frac{3}{5}\right)\ln\left(e+\frac{3}{5}\right)}+\frac{1}{\left(e+1\right)\ln\left(e+1\right)}+\frac{1}{\left(e+\frac{7}{5}\right)\ln\left(e+\frac{7}{5}\right)}+\frac{1}{\left(e+\frac{9}{5}\right)\ln\left(e+\frac{9}{5}\right)}\right)=0.43771812299\]
+10.\[12=2f(0)\Rightarrow f(0)=6\]
+\[f(-0.5)+f(0.5)=5\Rightarrow f(0.5)=3,f(-0.5)=2\]
+\[\frac{1}{6}[f(1)+f(-1)+4f(-0.5)+2f(0)+4f(0.5)]=6\Rightarrow f(1)=f(-1)=2\]
+12.a.\[\frac{\pi}{12}h^2f''(\pi)\leq10^{-4}\Rightarrow n\geq\sqrt{\frac{\left(\left(2-\pi^2\right)\cos\pi-4\pi\sin\pi\right)\cdot\frac{\pi^3}{12}}{10^{-4}}}=451,h<\frac{\pi}{451}=0.00696689453213\]
+b.\[\frac{\pi}{180}h^4f^{(4)}(2.181)\leq10^{-4}\Rightarrow n\geq\left(\frac{\left(8\cdot2.181\sin2.181+\left(2.181^2-12\right)\cos2.181\right)\cdot\frac{\pi^5}{180}}{10^{-4}}\right)^{-4}=24,h<\frac{\pi}{24}=0.132749440081\]
+c.\[\frac{\pi}{6}h^2f''(\pi)\leq10^{-4}\Rightarrow n\geq\sqrt{\frac{\left(\left(2-\pi^2\right)\cos\pi-4\pi\sin\pi\right)\cdot\frac{\pi^3}{6}}{10^{-4}}}=638,h<\frac{\pi}{638}=0.00492633836748\]
+\begin{large}Section 4.5\end{large}
+\\\noindent\rule{16cm}{0.4pt}\lstinputlisting[language=Matlab]{romberg.m}\noindent\rule{16cm}{0.4pt}
+\\
+2.d.\\\\Use romberg.m, we get \[R_{3,3}=0.526815545\]
+4.d.\\\\Use romberg.m, we get \[R_{4,4}=0.52659385\]
+6.d.\\\\Use romberg.m, we found that \[|R_{5,5}-R_{6,6}|=|0.52658907812-0.526589034294|=4.3826000051\times10^{-8}<10^{-6}\]
+\[actual error=|0.526589034294-0.526589034139|=1.549999018\times10^{-10}\]
+
+
+
+
+\end{document}

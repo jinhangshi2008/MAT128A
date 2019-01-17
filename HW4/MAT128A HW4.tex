@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{pgfplots}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\begin{document}
+\begin{flushright}MAT 128A: Homework 3\\ Hangshi Jin\\ 913142686\\ Rohit Thomas
+\end{flushright}
+\begin{large}Section 8.5\end{large}
+\\\\
+2.\[a_k=0,a_0=0\]
+\[\Rightarrow S_n(x)=\sum^{n-1}_{k=1}\frac{2\sin{kx}(\sin{\pi k}-\pi k\cos{\pi k})}{\pi k^2}\]
+6.
+\[\text{For } -\pi<x\leq0, a_k=\frac{\int_{-\pi}^0-\cos{kx}dx}{\pi}=-\frac{\int_{0}^\pi\cos{kx}dx}{\pi}\]
+\[a_0=-1,a_n=-\frac{\int_{0}^\pi\cos{kx}dx}{\pi}\]
+\[b_k=\frac{\int_{-\pi}^0-\sin{kx}dx}{\pi}=\frac{1-cos(k\pi)}{k\pi}\]
+\[\text{For } 0<x\leq\pi, a_k=\frac{\int_{0}^\pi\cos{kx}dx}{\pi}\]
+\[a_0=1,a_n=\frac{\int_{0}^\pi\cos{kx}dx}{\pi}\]
+\[b_k=\frac{\int_{0}^\pi\sin{kx}dx}{\pi}=\frac{1-cos(k\pi)}{k\pi}\]
+It is clear that $a_0$, $a_n$, $a_k$ cancel out.
+\[\Rightarrow S_n(x)=\sum^{n-1}_{k=1}\frac{2(1-(-1)^k)}{k\pi}\sin kx\]
+\\\noindent\rule{16cm}{0.4pt}\lstinputlisting[language=Matlab]{dtripoly.m}\noindent\rule{16cm}{0.4pt}
+\\7.
+\\\\Use dtripoly.m, we get\\\\
+a.\[S_2(x)=cos(2.0*x) - 1.530808e^{-17}*cos(x) - 2.775558e^{-17}*sin(x)\]
+b.\[S_2(x)=2.775558e^{-17}*sin(x) - 5.551115e^{-17}*cos(x) - 9.880895e^{-17}*cos(2.0*x)\]
+\\\noindent\rule{16cm}{0.4pt}\lstinputlisting[language=Matlab]{edtripoly.m}\noindent\rule{16cm}{0.4pt}\\
+8.
+\\\\Use edtripoly.m, we get\\\\
+a.\[E(S_2)=4.018838e^{-33}\]
+b.\[E(S_2)=4.0\]
+\begin{large}Section 4.1\end{large}
+\\\\2.b.\[f'(1)=\frac{1-1.2625}{-0.2}=1.3125,f'(1.2)=\frac{1.2625-1}{0.2}=1.3125,\frac{1.6595-1.2625}{0.2}=1.985\]
+4.b.\[f'(x)=2x\ln x+x,f''(x)=2\ln x+3\]
+\[\text{actual error: }f'(1):|1-1.3125|=0.3125\]
+\[f'(1.2):|2\cdot1.2\cdot\ln\left(1.2\right)+1.2-1.3125|=0.325071736305\]
+\[f'(1.4):|2\cdot1.4\cdot\ln\left(1.4\right)+1.4-1.985|=0.357122262539\]
+\[\text{error bound:} f'(1):|\left(2\ln1.2+3\right)\cdot\frac{0.2}{2}|=0.336464311359\]
+\[f'(1.2):|\left(2\ln1.2+3\right)\cdot\frac{-0.2}{2}|=0.336464311359\]
+\[f'(1.4):|\left(2\ln1.4+3\right)\cdot\frac{0.2}{2}|=0.367294447324\]
+6.b.\[f'(7.4)=\frac{1}{2\cdot0.2}\left(-3\cdot-68.3193+4\cdot-71.6982+75.1576\right)=-16.69325\]
+\[f'(7.6)=\frac{1}{2\cdot0.2}\left(-3\cdot-71.6982+4\cdot-75.1576+78.6974\right)=-17.096\]
+\[f'(7.8)=\frac{1}{2\cdot-0.2}\left(-3\cdot-75.1576+4\cdot-71.6982+68.3193\right)=-17.49825\]
+\[f'(8.0)=\frac{1}{2\cdot-0.2}\left(-3\cdot-78.6974+4\cdot-75.1576+71.6982\right)=-17.9\]
+8.b.\[f'(x)=\frac{1}{x+2}-2(x+1),f''(x)=\frac{-1}{(x+2)^2}-2,f'''(x)=\frac{2}{(x+2)^3}\]
+\[\text{actual error: }f'(7.4):|\frac{1}{7.4+2}-2(7.4+1)+16.69325|=0.000367021276599\]
+\[f'(7.6):|\frac{1}{7.6+2}-2(7.6+1)+17.096|=0.000166666666669\]
+\[f'(7.8):|\frac{1}{7.8+2}-2\left(7.8+1\right)+17.49825|=0.00029081632653\]
+\[f'(8.0):|\frac{1}{8+2}-2\left(8+1\right)+17.9|=0\]
+\[\text{error bound:}f'(7.4):\frac{0.2^2}{3}\frac{2}{(7.4+2)^3}=0.000032105923864\]
+\[f'(7.6):\frac{0.2^2}{6}\frac{2}{(7.4+2)^3}=0.000016052961932\]
+\[f'(7.8):\frac{0.2^2}{6}\frac{2}{(7.6+2)^3}=0.0000150704089506\]
+\[f'(8.0):\frac{0.2^2}{3}\frac{2}{(7.6+2)^3}=0.0000301408179012\]
+14.\[f'(3)=\frac{3.0976-2.6734}{2}=0.2121\]
+\[\text{Error bound :}\frac{4\cdot1^2}{6}=\frac{4}{6}=0.666666666667\]
+\begin{large}Section 4.2\end{large}
+\\\noindent\rule{16cm}{0.4pt}\lstinputlisting[language=Matlab]{Richex1.m}\noindent\rule{16cm}{0.4pt}\\
+2.b.\\\\Use Richex1.m, we get 
+\[N_4(0.4)=1.99999622\]
+\noindent\rule{16cm}{0.4pt}\lstinputlisting[language=Matlab]{Richex.m}\noindent\rule{16cm}{0.4pt}\\
+6.\\\\Type in $N_1(h),N_1(\frac{h}{2}),N_1(\frac{h}{4}),N_1(\frac{h}{8})$ to Richex.m, we get\[N_4(h)=-1.00013515\]
+8.\[N_1(h)=\frac{1}{h}[f(x_0+h)-f(x_0)]\]
+\[O(h)=N_1(\frac{h}{2})-\frac{h}{4}f''(x_0)-\frac{h^2}{24}f'''(x_0)\]
+\[O(h^2)=2N_1(\frac{h}{2})-N_1(h)+\frac{h^2}{12}f'''(x_0)\]
+\[N_2(h)=2N_1(\frac{h}{2})-N_1(h)\]
+\[O(h^3)=\frac{4}{3}N_2(\frac{h}{2})-\frac{1}{3}N_2(h)=\frac{4}{3}(2N_1(\frac{h}{4})-N_1(\frac{h}{2}))-\frac{1}{3}(2N_1(\frac{h}{2})-N_1(h))\]
+\[=\frac{4}{3}(2(\frac{4}{h}(f(x_0+\frac{h}{4})-f(x_0)))-\frac{2}{h}(f(x_0+\frac{h}{2}-f(x_0))))-\frac{1}{3}(2(\frac{2}{h}(f(x_0+\frac{h}{2})-f(x_0)))-\frac{1}{h}(f(x_0+h)-f(x_0)))\]
+\[=\frac{32}{3h}(f(x_0+\frac{h}{4})-f(x_0))-\frac{8}{3h}(f(x_0+\frac{h}{2})-f(x_0))-\frac{4}{3h}(f(x_0+\frac{h}{2})-f(x_0))+\frac{1}{3h}(f(x_0+h)-f(x_0))\]
+Replace h with 4h, we get\[\frac{8}{3h}(f(x_0+h)-f(x_0))-\frac{1}{h}(f(x_0+2h)-f(x_0))+\frac{1}{12h}(f(x_0+4h)-f(x_0))\]
+\end{document}
